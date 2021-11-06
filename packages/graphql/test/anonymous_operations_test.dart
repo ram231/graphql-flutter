@@ -1,9 +1,8 @@
 import 'package:gql/language.dart';
 import 'package:gql_exec/gql_exec.dart';
-import 'package:test/test.dart';
-import 'package:mockito/mockito.dart';
-
 import 'package:graphql/client.dart';
+import 'package:mockito/mockito.dart';
+import 'package:test/test.dart';
 
 import './helpers.dart';
 
@@ -57,6 +56,7 @@ void main() {
           (_) => Stream.fromIterable(
             [
               Response(
+                response: {},
                 data: <String, dynamic>{
                   'viewer': {
                     'repositories': {
@@ -135,6 +135,7 @@ void main() {
           (_) => Stream.fromIterable(
             [
               Response(
+                response: {},
                 data: <String, dynamic>{
                   'action': {
                     'starrable': {

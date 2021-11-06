@@ -15,7 +15,7 @@ ios/Flutter/Generated.xcconfig
 ios/Runner/GeneratedPluginRegistrant.*
 .flutter-plugins
 pubspec.lock
-
+.fvm/flutter_sdk
 # Coverage
 coverage.json
 coverage/*

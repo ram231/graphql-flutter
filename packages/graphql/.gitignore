@@ -2,3 +2,4 @@ test/.test_coverage.dart
 
 # side effect of running test
 test/cache/store/test_hive_boxes/
+.fvm/flutter_sdk

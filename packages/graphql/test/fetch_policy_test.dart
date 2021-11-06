@@ -1,9 +1,8 @@
-import 'package:gql_exec/gql_exec.dart';
-import 'package:test/test.dart';
-import 'package:mockito/mockito.dart';
-
-import 'package:graphql/client.dart';
 import 'package:gql/language.dart';
+import 'package:gql_exec/gql_exec.dart';
+import 'package:graphql/client.dart';
+import 'package:mockito/mockito.dart';
+import 'package:test/test.dart';
 
 import './helpers.dart';
 
@@ -84,7 +83,7 @@ void main() {
           link.request(any),
         ).thenAnswer(
           (_) => Stream.fromIterable([
-            Response(data: repoData),
+            Response(data: repoData, response: {}),
           ]),
         );
 

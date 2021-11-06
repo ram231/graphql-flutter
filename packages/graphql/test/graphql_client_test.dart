@@ -1,10 +1,9 @@
+import 'package:gql/language.dart';
 import 'package:gql_exec/gql_exec.dart';
 import 'package:gql_link/gql_link.dart';
-import 'package:test/test.dart';
-import 'package:mockito/mockito.dart';
-
 import 'package:graphql/client.dart';
-import 'package:gql/language.dart';
+import 'package:mockito/mockito.dart';
+import 'package:test/test.dart';
 
 import './helpers.dart';
 
@@ -114,6 +113,7 @@ void main() {
         ).thenAnswer(
           (_) => Stream.fromIterable([
             Response(
+              response: {},
               data: repoData,
               context: Context().withEntry(
                 HttpLinkResponseContext(
@@ -182,7 +182,7 @@ void main() {
           link.request(any),
         ).thenAnswer(
           (_) => Stream.fromIterable([
-            Response(data: repoData),
+            Response(response: {}, data: repoData),
           ]),
         );
 
@@ -206,6 +206,7 @@ void main() {
 
         final resp = (d) => Stream.fromIterable([
               Response(
+                response: {},
                 data: d,
                 context: Context().withEntry(
                   HttpLinkResponseContext(
@@ -244,7 +245,7 @@ void main() {
           link.request(any),
         ).thenAnswer(
           (_) => Stream.fromIterable([
-            Response(data: malformedRepoData),
+            Response(response: {}, data: malformedRepoData),
           ]),
         );
 
@@ -312,6 +313,7 @@ void main() {
     group('mutation', () {
       test('query stream notified', () async {
         final initialQueryResponse = Response(
+          response: {},
           data: <String, dynamic>{
             'single': {
               'id': '1',
@@ -361,6 +363,7 @@ void main() {
         );
 
         final mutationResponseWithNewName = Response(
+          response: {},
           data: <String, dynamic>{
             'updateSingle': {
               'id': '1',
@@ -396,6 +399,7 @@ void main() {
           (_) => Stream.fromIterable(
             [
               Response(
+                response: {},
                 data: <String, dynamic>{
                   'action': {
                     'starrable': {
@@ -442,6 +446,7 @@ void main() {
           (_) => Stream.fromIterable(
             [
               Response(
+                response: {},
                 data: <String, dynamic>{
                   'action': {
                     'starrable': {
@@ -495,6 +500,7 @@ void main() {
             'name': 'second',
           },
         ].map((item) => Response(
+              response: {},
               data: <String, dynamic>{
                 'item': {
                   '__typename': 'Item',
